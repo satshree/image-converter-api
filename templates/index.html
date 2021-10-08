@@ -1,0 +1,31 @@
+{% extends "./base.html" %} {% load static %} {% load humanize %}
+<!--  -->
+{% block title %} Image Converter/Compressor {% endblock title %}
+<!--  -->
+{% block body %}
+<div class="vertical-center">
+  <div class="w-75">
+    <div class="text-center">
+      <h3>Image Converter</h3>
+    </div>
+    <hr />
+    <div class="text-center">
+      <div class="pl-5 pr-5">
+        <input
+          type="file"
+          class="form-control"
+          id="image-selector"
+          accept="image/jpg, image/jpeg, image/png"
+        />
+      </div>
+    </div>
+    <br />
+    <div class="text-center">
+      <button type="button" class="btn btn-sm btn-outline-dark">Convert</button>
+      <button type="button" class="btn btn-sm btn-outline-dark">
+        Compress
+      </button>
+    </div>
+  </div>
+</div>
+{% endblock body %}

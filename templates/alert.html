@@ -1,0 +1,34 @@
+
+{% for message in messages %}
+<div class="alert-wrapper">
+  <div id="alert-{{forloop.counter}}" class="w-100 alert alert-dismissible fade show
+    {% if message.tags == "success" %}
+    alert-success
+    {% elif message.tags == "error" %}
+    alert-danger
+    {% elif message.tags == "warning" %}
+    alert-warning
+    {% else %}
+    alert-primary
+    {% endif %}
+    " role="alert">
+    {{message}}
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+  </div>
+</div>
+{% if message.tags == "success" %}
+<script>
+  let alertElement = document.querySelector("#alert-{{forloop.counter}}");
+  setTimeout(() => alertElement.style.display='none', 8000);
+</script>
+{% endif %}
+{% endfor %}
+
+<div style="position: relative">
+  <div class="custom-toast"></div>
+</div>
