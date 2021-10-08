@@ -232,7 +232,7 @@ $("#image-selector").on("change", (e) => {
                 <strong>Type:</strong> <small>${type}</small>
                 <br />
                 <br />
-                <div class="text-center">
+                <div class="text-center" id="remove-btn-div">
                   <button type="button" class="btn btn-sm btn-outline-danger" onclick="removeImage()">
                     Remove
                   </button>
