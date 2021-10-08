@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1"
+    />
+    <title>500 Error</title>
+    <style>
+      body {
+        font-family: "SF", Helvetica, "Roboto", Arial, sans-serif;
+      }
+      a {
+        text-decoration: none;
+        font-style: italic;
+        color: grey;
+        transition: 0.2s;
+      }
+      a:hover {
+        color: #f2f2f2;
+        transition: 0.2s;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      style="
+        display: flex;
+        height: 95vh;
+        align-items: center;
+        justify-content: center;
+      "
+    >
+      <div>
+        <img src="{% static 'img/broken.svg' %}" style="width: 90%" alt="500" />
+        <hr />
+        <div
+          style="display: flex; align-items: center; justify-content: center"
+        >
+          <h6>
+            Apologies for the inconvenience. You can report the problem at
+            <a href="mailto:satshree.shrestha@gmail.com"
+              >satshree.shrestha@gmail.com</a
+            >
+          </h6>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

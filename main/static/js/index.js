@@ -12,7 +12,17 @@ function toggleLoadingConvertBtn() {
     $("#convertBtn").attr("disabled", "true");
     $("#convertBtn").attr("data-loading", "true");
   } else {
-    $("#convertBtn").html("Convert");
+    if (image) {
+      let type = image[0].type.split("/")[1];
+
+      if (type === "png") {
+        $("#convertBtn").html("Convert to JPG");
+      } else {
+        $("#convertBtn").html("Convert to PNG");
+      }
+    } else {
+      $("#convertBtn").html("Convert to ...");
+    }
     $("#convert-btn-loading").remove();
     $("#convertBtn").attr("disabled", null);
     $("#convertBtn").attr("data-loading", "false");
@@ -42,6 +52,7 @@ function toggleLoadingCompressBtn() {
 
 function removeImage() {
   image = null;
+  $("#convertBtn").html("Convert to ...");
   $("#display-img-container").hide();
   $("#image-selector").value = null;
 }
@@ -49,6 +60,63 @@ function removeImage() {
 function convertImage() {
   if (image) {
     toggleLoadingConvertBtn();
+
+    let image_name = "";
+    let type = image[0].type;
+    if (type === "image/png") {
+      image_name = `${image[0].name.split(".")[0]}.jpg`;
+    } else {
+      image_name = `${image[0].name.split(".")[0]}.png`;
+    }
+
+    let data = new FormData();
+    data.append("image", image[0]);
+
+    $.ajax({
+      method: "POST",
+      url: "/api/converter/",
+      contentType: false,
+      processData: false,
+      xhr: function () {
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState == 2) {
+            if (xhr.status == 200) {
+              xhr.responseType = "blob";
+            } else {
+              xhr.responseType = "text";
+            }
+          }
+        };
+        return xhr;
+      },
+      data,
+      success: (resp) => {
+        toggleLoadingConvertBtn();
+
+        let blob = new Blob([resp], { type: "text/plain" });
+
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.style.display = "none";
+        a.href = url;
+        a.download = image_name;
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+
+        alert("Image converted!");
+      },
+      error: (err) => {
+        toggleLoadingConvertBtn();
+        console.log(err);
+        alertToast(
+          err.responseJSON
+            ? err.responseJSON.error || err.responseJSON.message
+            : "Something went wrong."
+        );
+      },
+    });
   } else {
     alertToast("Select image first!");
   }
@@ -141,6 +209,12 @@ $("#image-selector").on("change", (e) => {
     let name = image[0].name;
     let size = Math.round((image[0].size / (1024 * 1024)) * 100) / 100;
     let type = image[0].type.split("/")[1];
+
+    if (type === "png") {
+      $("#convertBtn").html("Convert to JPG");
+    } else {
+      $("#convertBtn").html("Convert to PNG");
+    }
 
     reader.addEventListener("load", () => {
       $("#display-img-div").html(

@@ -25,6 +25,11 @@ urlpatterns = [
     path('api/compressor/', include('compressor.urls')),
 ]
 
+# CUSTOM HANDLERS
+handler403 = "main.handlers.handler403"
+handler404 = "main.handlers.handler404"
+handler500 = "main.handlers.handler500"
+
 if settings.DEBUG:
     from django.conf.urls.static import static
     urlpatterns += static(settings.STATIC_URL,
