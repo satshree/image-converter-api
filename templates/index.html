@@ -9,20 +9,25 @@
       <h3>Image Converter/Compressor</h3>
     </div>
     <hr />
-
+    <div class="text-center">
+      <small>Images are not stored in any servers.</small>
+    </div>
+    <hr />
     <div class="text-center">
       <div class="pl-5 pr-5">
-        <input
-          type="file"
-          class="form-control"
-          id="image-selector"
-          accept="image/jpg, image/jpeg, image/png"
-        />
+        <form id="main-form">
+          <input type="reset" style="display: none" id="reset-form-btn" />
+          <input
+            type="file"
+            class="form-control"
+            id="image-selector"
+            accept="image/jpg, image/jpeg, image/png"
+          />
+        </form>
       </div>
     </div>
     <br />
     <div class="text-center">
-      {% comment %}
       <button
         id="convertBtn"
         type="button"
@@ -31,10 +36,6 @@
         data-loading="false"
       >
         Convert to ...
-      </button>
-      {% endcomment %}
-      <button type="button" class="btn btn-sm btn-outline-dark m-1" disabled>
-        Conversion Coming Soon ...
       </button>
       <button
         id="compressBtn"

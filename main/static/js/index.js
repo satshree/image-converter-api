@@ -55,6 +55,7 @@ function removeImage() {
   $("#convertBtn").html("Convert to ...");
   $("#display-img-container").hide();
   $("#image-selector").value = null;
+  $("#reset-form-btn").trigger("click");
 }
 
 function convertImage() {
@@ -220,22 +221,32 @@ $("#image-selector").on("change", (e) => {
       $("#display-img-div").html(
         `<div class="row">
           <div class="col-sm-6">
-            <img id="display-img" src="${reader.result}" style="width: 100%; margin-bottom: 5px" alt="display" />
+            <div class="text-center">
+              <img id="display-img" src="${reader.result}" style="width: ${
+          window.innerWidth < 568 ? "50%" : "100%"
+        }; margin-bottom: 5px" alt="display" />
+            </div>
           </div>
           <div class="col-sm-6">
-            <div class="container vertical-center" style="height: 100%">
-              <div>
-                <strong>Name:</strong> <small>${name}</small>
-                <br />
-                <strong>Size:</strong> <small>${size} MB</small>
-                <br />
-                <strong>Type:</strong> <small>${type}</small>
-                <br />
-                <br />
-                <div class="text-center" id="remove-btn-div">
-                  <button type="button" class="btn btn-sm btn-outline-danger" onclick="removeImage()">
-                    Remove
-                  </button>
+            <div class="vertical-center" style="height: 100%">
+              <div class="w-100">
+                <div>
+                  <div class="container">
+                    <strong>Name:</strong> <small>${name}</small>
+                    <br />
+                    <strong>Size:</strong> <small>${size} MB</small>
+                    <br />
+                    <strong>Type:</strong> <small>${type}</small>
+                    <br />
+                    <br />
+                  </div>
+                  <div class="text-center" id="remove-btn-div">
+                    <button type="button" class="btn btn-sm btn-outline-danger" onclick="removeImage()" style="width:${
+                      window.innerWidth < 568 ? "100%" : "auto"
+                    }"">
+                      Remove
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
