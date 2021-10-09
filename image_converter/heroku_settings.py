@@ -5,4 +5,4 @@ STATICFILES_FINDER = [
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 ]
 
-ALLOWED_HOSTS = ["image-converter-api.herokuapp.com"]
+ALLOWED_HOSTS = ["image-converter-compressor.herokuapp.com"]
