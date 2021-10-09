@@ -7,10 +7,9 @@
   <div class="w-75">
     <div class="text-center">
       <h3>Image Converter/Compressor</h3>
-    </div>
-    <hr />
-    <div class="text-center">
-      <small>Images are not stored in any servers.</small>
+      <div class="text-center">
+        <small> <small> Images are not stored in any servers. </small></small>
+      </div>
     </div>
     <hr />
     <div class="text-center">
@@ -69,8 +68,8 @@
         ></button>
       </div>
       <div class="modal-body">
-        <img id="compress-image-modal-img" style="width: 100%" alt="compress" />
-        <hr />
+        <!-- <img id="compress-image-modal-img" style="width: 100%" alt="compress" />
+        <hr /> -->
         <label for="compress-range" class="form-label"
           >Select Compress Quality</label
         >
@@ -96,6 +95,31 @@
           onclick="submitCompressImage()"
         >
           Compress
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="view-image-modal" class="modal fade" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content">
+      <!-- <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div> -->
+      <div class="modal-body">
+        <div class="text-center">
+          <img id="view-image-modal-img" style="width: 90%" alt="view" />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-sm btn-outline-dark"
+          data-bs-dismiss="modal"
+        >
+          Close
         </button>
       </div>
     </div>

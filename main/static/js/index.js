@@ -187,8 +187,21 @@ function submitCompressImage() {
   });
 }
 
+function viewImage() {
+  if (image) {
+    let img = $("#display-img").attr("src");
+    $("#view-image-modal-img").attr("src", img);
+    viewImageModal.show();
+  } else {
+    alertToast("Select Image First!");
+  }
+}
+
 let compressModal = new bootstrap.Modal(
   document.getElementById("compress-image-modal")
+);
+let viewImageModal = new bootstrap.Modal(
+  document.getElementById("view-image-modal")
 );
 let image = null;
 let range = 50;
@@ -223,8 +236,8 @@ $("#image-selector").on("change", (e) => {
           <div class="col-sm-6">
             <div class="text-center">
               <img id="display-img" src="${reader.result}" style="width: ${
-          window.innerWidth < 568 ? "50%" : "100%"
-        }; margin-bottom: 5px" alt="display" />
+          window.innerWidth < 568 ? "30%" : "60%"
+        }; margin-bottom: 5px" alt="display" onclick="viewImage()" />
             </div>
           </div>
           <div class="col-sm-6">
@@ -239,8 +252,6 @@ $("#image-selector").on("change", (e) => {
                     <strong>Type:</strong> <small>${type}</small>
                     <br />
                     <br />
-                  </div>
-                  <div class="text-center" id="remove-btn-div">
                     <button type="button" class="btn btn-sm btn-outline-danger" onclick="removeImage()" style="width:${
                       window.innerWidth < 568 ? "100%" : "auto"
                     }"">
@@ -254,7 +265,7 @@ $("#image-selector").on("change", (e) => {
         </div>`
       );
 
-      $("#compress-image-modal-img").attr("src", reader.result);
+      // $("#compress-image-modal-img").attr("src", reader.result);
     });
   } catch (err) {
     console.log(err);
