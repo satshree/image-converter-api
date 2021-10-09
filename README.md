@@ -8,9 +8,15 @@ API for image converting and compressing app made by [me](https://satshree.com.n
 /api/converter/
 ```
 
+`{ image: IMAGE_BINARY_FILE }`
+
+<hr />
+
 ```
 /api/compresser/
 ```
+
+`{ image: IMAGE_BINARY_FILE, compress: "compression quality (int)" }`
 
 # License
 
