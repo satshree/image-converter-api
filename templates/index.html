@@ -8,7 +8,32 @@
     <div class="text-center">
       <h3>Image Converter/Compressor</h3>
       <div class="text-center">
-        <small> <small> Images are not stored in any servers. </small></small>
+        <small>
+          <small>
+            Images are not stored in any servers. No data is collected.
+          </small>
+        </small>
+        <br />
+        <div
+          class="d-flex align-items-center justify-content-center w-100 mt-1"
+        >
+          <button
+            type="button"
+            class="btn btn-sm btn-outline-dark m-1"
+            data-bs-toggle="modal"
+            data-bs-target="#howItWorksModal"
+          >
+            How it works?
+          </button>
+          <button
+            type="button"
+            class="btn btn-sm btn-outline-dark m-1"
+            data-bs-toggle="modal"
+            data-bs-target="#pngLargeModal"
+          >
+            Image still large?
+          </button>
+        </div>
       </div>
     </div>
     <hr />
@@ -112,6 +137,120 @@
         <div class="text-center">
           <img id="view-image-modal-img" style="width: 90%" alt="view" />
         </div>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-sm btn-outline-dark"
+          data-bs-dismiss="modal"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="howItWorksModal"
+  tabindex="-1"
+  aria-labelledby="howItWorksModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">How it works</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="row text-center">
+          <div class="col-sm-4">
+            <img
+              class="m-3"
+              src="{% static 'img/upload.png' %}"
+              style="width: 65%"
+              alt="upload"
+            />
+            <br />
+            <br />
+            1. Your image will be uploaded.
+            <!-- to the backend API. -->
+          </div>
+          <div class="col-sm-4">
+            <img
+              class="m-3"
+              src="{% static 'img/compression.png' %}"
+              style="width: 65%"
+              alt="upload"
+            />
+            <br />
+            <br />
+            2. Your image will be converted/compressed.
+          </div>
+          <div class="col-sm-4">
+            <img
+              class="m-3"
+              src="{% static 'img/download.png' %}"
+              style="width: 65%"
+              alt="upload"
+            />
+            <br />
+            <br />
+            3. Your image will be downloaded.
+          </div>
+          <div class="col-sm-12">
+            <br />
+            <h5>Your image is never stored anywhere.</h5>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-sm btn-outline-dark"
+          data-bs-dismiss="modal"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="pngLargeModal"
+  tabindex="-1"
+  aria-labelledby="pngLargeModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          Compressed PNG image still large?
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        If your compressed PNG image is still large,
+        <br />
+        <br />
+        1. Convert it to JPG first.
+        <br />
+        2. Compress the image.
       </div>
       <div class="modal-footer">
         <button
