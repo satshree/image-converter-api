@@ -95,7 +95,7 @@ function convertImage() {
       success: (resp) => {
         toggleLoadingConvertBtn();
 
-        let blob = new Blob([resp], { type: "text/plain" });
+        let blob = new Blob([resp]);
 
         const url = window.URL.createObjectURL(blob);
         const a = document.createElement("a");
@@ -105,8 +105,9 @@ function convertImage() {
         document.body.appendChild(a);
         a.click();
         window.URL.revokeObjectURL(url);
+        document.body.removeChild(a);
 
-        alert("Image converted!");
+        // alert("Image converted!");
       },
       error: (err) => {
         toggleLoadingConvertBtn();
@@ -162,7 +163,7 @@ function submitCompressImage() {
     success: (resp) => {
       toggleLoadingCompressBtn();
 
-      let blob = new Blob([resp], { type: "text/plain" });
+      let blob = new Blob([resp]);
 
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement("a");
@@ -172,8 +173,8 @@ function submitCompressImage() {
       document.body.appendChild(a);
       a.click();
       window.URL.revokeObjectURL(url);
-
-      alert("Image compressed!");
+      document.body.removeChild(a);
+      // alert("Image compressed!");
     },
     error: (err) => {
       toggleLoadingCompressBtn();
