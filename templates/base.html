@@ -72,6 +72,24 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
+    <script>
+      let tooltipTriggerList = [].slice.call(
+        document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      );
+      let tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+      });
+      // let popoverTriggerList = [].slice.call(
+      //   document.querySelectorAll('[data-bs-toggle="popover"]')
+      // );
+      // let popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      //   return new bootstrap.Popover(popoverTriggerEl);
+      // });
+
+      // function getPopoverContent() {
+      //   return `<a href='https://image-converter-compressor.netlify.app' target='_blank' rel='noreferrer'>Try it out!</a>`;
+      // }
+    </script>
     <script src="{% static 'js/main.js' %}"></script>
     {% block js %}{% endblock js %}
     <!--  -->

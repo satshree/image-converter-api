@@ -15,11 +15,34 @@
         </div>
       </div>
       <div>
-        <img
-          src="{% static 'img/smartphone.png' %}"
-          style="margin-right: 1rem"
-          alt="github"
-        />
+        {% comment %}
+        <!-- <button
+          type="button"
+          class="btn btn-secondary"
+          title="This is the frontend app!"
+          template='<div class="popover" role="tooltip"><div class="popover-arrow"></div><h3 class="popover-header"></h3><div class="popover-body">what?<div class="text-center"><a href="https://image-converter-compressor.netlify.app" class="btn btn-sm btn-success" target="_blank" rel="noreferrer">Try it out</a></div></div></div>'
+          data-bs-container="body"
+          data-bs-toggle="popover"
+          data-bs-placement="top"
+          data-bs-content="hello"
+        >
+          tooltip on left
+        </button> -->
+        {% endcomment %}
+        <a
+          href="https://image-converter-compressor.netlify.app"
+          target="_blank"
+          rel="noreferrer"
+          data-bs-toggle="tooltip"
+          title="This is the frontend app!"
+          data-bs-placement="left"
+        >
+          <img
+            src="{% static 'img/smartphone.png' %}"
+            style="margin-right: 1rem"
+            alt="github"
+          />
+        </a>
         <a
           href="https://github.com/satshree/image-converter-api"
           target="_blank"
