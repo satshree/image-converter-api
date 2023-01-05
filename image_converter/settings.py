@@ -191,14 +191,14 @@ except:
 
 
 # HEROKU SETTINGS
-try:
-    if USE_HEROKU:
-        import django_heroku
-        django_heroku.settings(locals())
+# try:
+#     if USE_HEROKU:
+#         import django_heroku
+#         django_heroku.settings(locals())
 
-        from .heroku_settings import *
-except Exception as e:
-    print("-" * 100)
-    print("Unable to import Heroku Settings.")
-    print(str(e))
-    print("-" * 100)
+#         from .heroku_settings import *
+# except Exception as e:
+#     print("-" * 100)
+#     print("Unable to import Heroku Settings.")
+#     print(str(e))
+#     print("-" * 100)
