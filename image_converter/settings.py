@@ -55,6 +55,9 @@ STAGING = get_staging_var()
 # Application definition
 
 INSTALLED_APPS = [
+    # CLOUDINARY
+    'cloudinary_storage',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -65,7 +68,8 @@ INSTALLED_APPS = [
 
     # THIRD PARTY LIBRARIES (ONLY REQUIRED APPS)
     'corsheaders',
-    'whitenoise.runserver_nostatic',
+    'cloudinary',
+    # 'whitenoise.runserver_nostatic',
 
     # PROJECT APPS
     'main',
@@ -156,13 +160,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/imageconvertercompressor/static/'
 STATIC_ROOT = BASE_DIR / "static"
-STATICFILES_DIR = (
-    (BASE_DIR / "static"),
-    # (BASE_DIR / "main/static"),
-)
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+# STATICFILES_DIR = (
+#     (BASE_DIR / "static"),
+# (BASE_DIR / "main/static"),
+# )
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 MEDIA_URL = '/media/'
 # MEDIA_DIR = "media"
@@ -192,6 +196,14 @@ try:
 except:
     pass
 
+# CLOUDINARY SETTINGS
+try:
+    from .cloudinary_settings import *
+except Exception as e:
+    print("-" * 100)
+    print("Unable to import Cloudinary Settings.")
+    print(str(e))
+    print("-" * 100)
 
 # HEROKU SETTINGS
 # try:

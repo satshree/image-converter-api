@@ -1,1 +1,1 @@
-web: python manage.py collectstatic --no-input && python manage.py migrate && gunicorn image_converter.wsgi
+web: python manage.py migrate && gunicorn image_converter.wsgi
