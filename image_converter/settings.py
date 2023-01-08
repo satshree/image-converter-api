@@ -89,7 +89,7 @@ MIDDLEWARE = [
 
     # THIRD PARTY MIDDLEWARES
     'corsheaders.middleware.CorsMiddleware',
-    "whitenoise.middleware.WhiteNoiseMiddleware",
+    # "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = 'image_converter.urls'
