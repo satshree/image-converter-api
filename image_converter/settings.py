@@ -65,6 +65,7 @@ INSTALLED_APPS = [
 
     # THIRD PARTY LIBRARIES (ONLY REQUIRED APPS)
     'corsheaders',
+    'whitenoise.runserver_nostatic',
 
     # PROJECT APPS
     'main',
@@ -84,6 +85,7 @@ MIDDLEWARE = [
 
     # THIRD PARTY MIDDLEWARES
     'corsheaders.middleware.CorsMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = 'image_converter.urls'
@@ -160,6 +162,7 @@ STATICFILES_DIR = (
     (BASE_DIR / "static"),
     # (BASE_DIR / "main/static"),
 )
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 MEDIA_URL = '/media/'
 # MEDIA_DIR = "media"
