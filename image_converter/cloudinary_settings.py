@@ -29,5 +29,5 @@ try:
     )
 
     STATICFILES_STORAGE = "cloudinary_storage.storage.StaticHashedCloudinaryStorage"
-except:
-    pass
+except Exception as e:
+    print("Error on Cloudinary Settings:", str(e))
