@@ -10,12 +10,12 @@
     },
     {
       "src": "build.sh",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "staticfiles"
-      }
+      "use": "@vercel/static-build"
     }
   ],
+  "scripts": {
+    "build": "python manage.py collectstatic --noinput --clear"
+  },
   "routes": [
     {
       "src": "/(.*)",
