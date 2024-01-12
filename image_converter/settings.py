@@ -24,13 +24,16 @@ def get_staging_var():
     return str(var).lower() == "true"
 
 
-def get_allowed_hosts_var():
-    var = os.environ.get("ALLOWED_HOSTS", list([]))
+# def get_allowed_hosts_var():
+#     var = os.environ.get("ALLOWED_HOSTS", list([]))
 
-    if isinstance(var, list):
-        return var
+#     if isinstance(var, list):
+#         return var
 
-    return var.split(",").append('.vercel.app')
+#     allowed = var.split(",")
+#     allowed.append('.vercel.app')
+
+#     return allowed
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -46,7 +49,8 @@ SECRET_KEY = 'django-insecure-&kp(ulc8m%fbak!73h-enrnsbulqin@srn8_syn)8%s)%m9t38
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = get_allowed_hosts_var()
+# ALLOWED_HOSTS = get_allowed_hosts_var()
+ALLOWED_HOSTS = ['.vercel.app']
 
 USE_HEROKU = get_heroku_var()
 
