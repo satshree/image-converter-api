@@ -60,7 +60,7 @@ STAGING = get_staging_var()
 
 INSTALLED_APPS = [
     # CLOUDINARY
-    'cloudinary_storage',
+    # 'cloudinary_storage',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -72,7 +72,7 @@ INSTALLED_APPS = [
 
     # THIRD PARTY LIBRARIES (ONLY REQUIRED APPS)
     'corsheaders',
-    'cloudinary',
+    # 'cloudinary',
     # 'whitenoise.runserver_nostatic',
 
     # PROJECT APPS
@@ -201,13 +201,19 @@ except:
     pass
 
 # CLOUDINARY SETTINGS
-try:
-    from .cloudinary_settings import *
-except Exception as e:
-    print("-" * 100)
-    print("Unable to import Cloudinary Settings.")
-    print(str(e))
-    print("-" * 100)
+# try:
+#     CLOUDINARY_CLOUD_NAME = ""
+#     CLOUDINARY_API_KEY = ""
+#     CLOUDINARY_API_SECRET = ""
+#     CLOUDINARY_STORAGE = {}
+#     CLOUDINARY_URL = ""
+
+#     from .cloudinary_settings import *
+# except Exception as e:
+#     print("-" * 100)
+#     print("Unable to import Cloudinary Settings.")
+#     print(str(e))
+#     print("-" * 100)
 
 # HEROKU SETTINGS
 # try:
