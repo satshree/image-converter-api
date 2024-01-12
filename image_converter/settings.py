@@ -185,6 +185,10 @@ MEDIAFILES_DIR = (
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+CLOUDINARY_CLOUD_NAME = ""
+CLOUDINARY_API_KEY = ""
+CLOUDINARY_API_SECRET = ""
+
 # CORS SETTINGS
 try:
     from .cors_settings import *
@@ -194,7 +198,6 @@ except Exception as e:
     print(str(e))
     print("-" * 100)
 
-
 # LOCAL SETTINGS
 try:
     from .local_settings import *
@@ -203,9 +206,6 @@ except:
 
 # CLOUDINARY SETTINGS
 try:
-    # CLOUDINARY_CLOUD_NAME = ""
-    # CLOUDINARY_API_KEY = ""
-    # CLOUDINARY_API_SECRET = ""
     # CLOUDINARY_STORAGE = {}
     # CLOUDINARY_URL = ""
 
@@ -215,6 +215,7 @@ except Exception as e:
     print("Unable to import Cloudinary Settings.")
     print(str(e))
     print("-" * 100)
+
 
 # HEROKU SETTINGS
 # try:
