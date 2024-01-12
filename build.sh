@@ -18,4 +18,4 @@ python -m pip install -r requirements.txt
 
 # Collect static files
 echo "Collecting static files..."
-python manage.py collectstatic --noinput -v 3
+python manage.py collectstatic --noinput -v 2
