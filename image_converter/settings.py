@@ -30,7 +30,7 @@ def get_allowed_hosts_var():
     if isinstance(var, list):
         return var
 
-    return var.split(",")
+    return var.split(",").append('.vercel.app')
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -117,10 +117,10 @@ WSGI_APPLICATION = 'image_converter.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # }
 }
 
 
