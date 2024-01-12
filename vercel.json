@@ -4,12 +4,23 @@
       "src": "image_converter/wsgi.py",
       "use": "@vercel/python",
       "config": { "maxLambdaSize": "15mb" }
+    },
+    {
+      "src": "build.sh",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "staticfiles"
+      }
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
       "dest": "image_converter/wsgi.py"
+    },
+    {
+      "src": "/static/(.*)",
+      "dest": "/static/$1"
     }
   ]
 }
